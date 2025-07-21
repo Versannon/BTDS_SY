@@ -12,24 +12,53 @@
  - private and protected members through 'methods'.*/
 #include <iostream>
 using namespace std;
-
-class Student 
-{
+class Student{
 private:
-    int rollNo;
+      int RollNo;
+
 protected:
-    string grade;
+      string grade;
+
 public:
-    string name;
-    void setVal(int r, string g, string n)
-    {
-        rollNo = r;
-        grade = g;
-        name = n;
-    }
-    void dispdetails(
-        {
-            cout << "Rl. NO: " << 
-        }
-    )
+      string name;
+      
+      void setRollNo(int roll)
+      {
+            RollNo=roll;
+      }
+
+      int getRollNo()
+      {
+            return RollNo;
+      }
+
+      void setgrade(string Grade)
+      {
+            grade=Grade;
+      }
+
+};
+
+class Result : public Student{
+public:
+      void display()
+      {
+            cout <<"Grade of the Student="<<grade<<endl;
+      }
+
+};
+
+int main()
+{
+      Result r;
+      r.setRollNo(47);
+      r.setgrade("A+");
+      r.name="Soham";
+
+      cout <<"\nRoll Number of the Student="<<r.getRollNo()<<endl;
+      cout <<"Name of the Student="<<r.name<<endl;
+      r.display();
+      printf("\n");
+
+        return 0;
 }
