@@ -35,57 +35,64 @@ Interest Rate: 4.5%
 #include <iostream>
 using namespace std;
 
-class BankAccount {
+
+class BankAccount{
 private:
-    int accountNumber;
-    double balance;
+    int Account_Number;
+    double Balance;
 protected:
-    string accountHolderName;
+    string Account_holder_Name;
 public:
+    string name;
+
     void setAccountDetails(int accNo, double bal, string name) {
-        accountNumber = accNo;
-        balance = bal;
-        accountHolderName = name;
+        Account_Number = accNo;
+        Balance = bal;
+        Account_holder_Name = name;
     }
-    void displayAccountDetails() {
-        cout << "Account Number: " << accountNumber << endl;
-        cout << "Balance: " << balance << endl;
-        cout << "Account Holder: " << accountHolderName << endl;
+
+    int getAccountNumber() {
+        return Account_Number;
+    }
+
+    double getBalance() {
+        return Balance;
     }
 };
 
-class SavingsAccount : public BankAccount {
+
+class SavingsAccount : public BankAccount 
+{
 private:
     double interestRate;
 public:
-    void setInterestRate(double rate) {
+    void setInterestRate(double rate) 
+    {
         interestRate = rate;
     }
+
     void displayInterestRate() {
-        cout << "Interest Rate: " << interestRate << "%" << endl;
+        cout << "Interest Rate=" << interestRate << "%" << endl;
     }
+
     void showAccountHolderName() {
-        cout << "Account Holder (from protected): " << accountHolderName << endl;
+        cout << "Account Holder Name=" << Account_holder_Name << endl;
     }
 };
 
-int main() {
-    SavingsAccount s1;
-    s1.setAccountDetails(12345, 10000.50, "ABC");
-    s1.setInterestRate(4.5);
 
-    cout << "Account Details;" << endl;
-    s1.displayAccountDetails();
-    s1.displayInterestRate();
-    s1.showAccountHolderName();
+int main()
+{
+    SavingsAccount sa;
+    sa.setAccountDetails(1234567891, 50000, "Soham Kane");
+    sa.setInterestRate(4.5);
 
-    // The following lines will cause errors due to access specifiers:
-    // s1.accountNumber = 111; // Error: 'accountNumber' is private
-    // s1.balance = 2000;      // Error: 'balance' is private
-    // s1.accountHolderName = "XYZ"; // Error: 'accountHolderName' is protected
-
+    cout << "Account Number=" << sa.getAccountNumber() << endl;
+    cout << "Balance=" << sa.getBalance() << endl;
+    sa.showAccountHolderName();
+    sa.displayInterestRate();
+    printf("\n");
     return 0;
-
 }
 /*
 This C++ program demonstrates the concept of **Inheritance**, **Access Specifiers**, and **Encapsulation** using a banking system example.
