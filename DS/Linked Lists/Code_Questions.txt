@@ -1,0 +1,6 @@
+code1: 
+- Create a Linked list.
+- Create 2 nodes.
+- add some data values to the nodes.
+- add a node in between the 2 nodes.
+- print the linked list.
