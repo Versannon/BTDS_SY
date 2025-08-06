@@ -4,3 +4,10 @@ code1:
 - add some data values to the nodes.
 - add a node in between the 2 nodes.
 - print the linked list.
+code2:
+- Create a doubly linked list.
+- Create 3 nodes.
+- add some data values to the nodes.
+- add a node at the beginning of the list.
+- add a node at the end of the list.
+- print the linked list.

@@ -30,7 +30,7 @@ int main() {
     struct Node *current = head;
     printf("Linked List: ");
     while (current != NULL) {
-        printf("%d → ", current->data);
+        printf("%d - ", current->data);
         current = current->link;
     }
     printf("NULL\n");
