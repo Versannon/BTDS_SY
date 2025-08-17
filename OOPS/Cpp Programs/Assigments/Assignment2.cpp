@@ -25,7 +25,6 @@ Try accessing accountNumber, balance, and accountHolderName directly from the ob
 
 
 
-
 Account Number: 12345
 Balance: 10000.50
 Account Holder: ABC
