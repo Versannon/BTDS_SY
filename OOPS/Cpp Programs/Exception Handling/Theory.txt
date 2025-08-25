@@ -1,0 +1,17 @@
+Exception Handling:
+- It is a way to detect errors[exception] at runtime & handle them properly without crashing the program.
+- E.g.,
+    - Zero division error.
+    - Accessing invalid array index.
+    - Running out of memory.
+- without exception handling, these error usually terminate the program.
+- syntax:
+    try {
+        if(error-condition)
+        throw exception_value;
+    }
+    catch (type variable)
+    {
+        //code to handle
+        exception
+    }
