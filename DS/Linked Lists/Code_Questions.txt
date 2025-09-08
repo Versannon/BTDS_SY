@@ -11,3 +11,6 @@ code2:
 - add a node at the beginning of the list.
 - add a node at the end of the list.
 - print the linked list.
+code3:
+- Create a singly linked list.
+- perform insertion, deletion, and traversal operations.
