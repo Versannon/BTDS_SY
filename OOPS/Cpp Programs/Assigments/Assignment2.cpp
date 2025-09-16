@@ -22,9 +22,6 @@ Display account details, interest rate, and account holder’s name.
 Try accessing accountNumber, balance, and accountHolderName directly from the object and comment the errors.
 
 
-
-
-
 Account Number: 12345
 Balance: 10000.50
 Account Holder: ABC
