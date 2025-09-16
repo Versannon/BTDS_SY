@@ -1,66 +1,65 @@
-/*
-code3:
-- Create a singly linked list.
-- perform insertion, deletion, and traversal operations.
-*/
 #include <stdio.h>
 #include <stdlib.h>
-struct Node
-{
+
+// Node structure
+typedef struct Node {
     int data;
-    struct Node *link;
-};
+    struct Node* next;
+} Node;
 
-
-// Traverse and print the list
-void traverse(struct Node* head) {
-    struct Node* temp = head;
-    printf("Linked list: ");
-    while (temp != NULL) {
-        printf("%d ", temp->data);
-        temp = temp->link;
-    }
-    printf("\n");
+// Create a new node
+Node* createNode(int data) {
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    newNode->data = data;
+    newNode->next = NULL;
+    return newNode;
 }
 
 // Insert at the end
-void insertEnd(struct Node** head, int data) {
-    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
-    newNode->data = data;
-    newNode->link = NULL;
+void insertEnd(Node** head, int data) {
+    Node* newNode = createNode(data);
     if (*head == NULL) {
         *head = newNode;
         return;
     }
-    struct Node* temp = *head;
-    while (temp->link != NULL) {
-        temp = temp->link;
+    Node* temp = *head;
+    while (temp->next != NULL) {
+        temp = temp->next;
     }
-    temp->link = newNode;
+    temp->next = newNode;
 }
 
 // Delete a node with given key
-void deleteNode(struct Node** head, int key) {
-    struct Node *temp = *head, *prev = NULL;
+void deleteNode(Node** head, int key) {
+    Node* temp = *head, *prev = NULL;
     if (temp != NULL && temp->data == key) {
-        *head = temp->link;
+        *head = temp->next;
         free(temp);
         return;
     }
     while (temp != NULL && temp->data != key) {
         prev = temp;
-        temp = temp->link;
+        temp = temp->next;
     }
     if (temp == NULL) return;
-    prev->link = temp->link;
+    prev->next = temp->next;
     free(temp);
 }
 
+// Print the list
+void printList(Node* head) {
+    while (head != NULL) {
+        printf("%d ", head->data);
+        head = head->next;
+    }
+    printf("\n");
+}
+
 int main() {
-    struct Node* head = NULL;
+    Node* head = NULL;
     int choice, val;
     while (1) {
-        printf("\n1. Insert\n2. Delete\n3. Traverse\n4. Exit\nEnter your choice: ");
+        printf("\n1. Insert\n2. Delete\n3. Display\n4. Exit\nEnter your choice: ");
         scanf("%d", &choice);
         switch (choice) {
             case 1:
@@ -74,7 +73,7 @@ int main() {
                 deleteNode(&head, val);
                 break;
             case 3:
-                traverse(head);
+                printList(head);
                 break;
             case 4:
                 return 0;
