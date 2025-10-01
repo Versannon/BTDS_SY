@@ -1,0 +1,104 @@
+Thread methods ().
+Threads & Processes in Java
+==========================
+
+• **Process**
+	- A process is an independent program in execution with its own memory space.
+	- Each process runs in its own address space and does not share memory with other processes.
+	- Processes are heavyweight; context switching between processes is expensive.
+	- Communication between processes (Inter-Process Communication, IPC) is complex and slower.
+	- Examples: Running two different Java applications.
+
+• **Thread**
+	- A thread is a lightweight sub-process, the smallest unit of processing.
+	- Threads within the same process share memory and resources.
+	- Threads are easier to create and context switch is faster than processes.
+	- Used for multitasking within a single process (concurrent execution).
+	- Examples: Multiple tasks in a single Java program (e.g., GUI + background calculation).
+
+• **Main Differences**
+	- Processes do not share memory; threads do.
+	- Processes are isolated; threads are not.
+	- Threads are more efficient for tasks that need to share data.
+
+• **Thread Lifecycle**
+	- New: Thread is created but not started.
+	- Runnable: Thread is ready to run and waiting for CPU.
+	- Running: Thread is executing.
+	- Blocked/Waiting: Thread is waiting for a resource or another thread.
+	- Terminated/Dead: Thread has finished execution.
+
+• **Creating Threads in Java**
+	- By extending the `Thread` class and overriding `run()` method.
+	- By implementing the `Runnable` interface and passing it to a `Thread` object.
+	- By implementing the `Callable` interface (for threads that return a result, used with `ExecutorService`).
+
+• **Thread Methods**
+	1: start()-> It is used to start the execution of a thread. When the start() method is invoked, the thread enters the runnable state.
+    2: run() -> Called by start.
+    3: sleep(miliseconds)-> Suspends thread fo given miliseconds. [miliseconds = static method], [Thread.sleep(miliseconds)]
+    4: join()-> wait thread to complete its process. used in multithreading. try & catch block.
+    5: getID() -> return id of thread.
+    6: getName()-> return name of thread.
+    7: setName(strings)-> Thread name will be replaced by given string.
+    8: getPriority(integer)-> Set priority of thread. 1 to 10. Default is 5.
+    9: isAlive() -> return true if thread is active, and false if thread is not active.
+
+• **Thread Synchronization**
+	- Needed when multiple threads access shared resources.
+	- Use `synchronized` keyword to prevent race conditions.
+	- Can synchronize methods or code blocks.
+	- Other tools: `Lock` interface, `ReentrantLock`, `Semaphore`, `CountDownLatch`, etc.
+
+• **Thread Communication**
+	- Threads can communicate using `wait()`, `notify()`, and `notifyAll()` methods (on shared objects).
+	- Used for coordination between threads (producer-consumer problem).
+
+• **Thread Safety**
+	- Ensuring shared data is accessed by only one thread at a time.
+	- Use synchronization, immutable objects, or thread-safe classes (e.g., `ConcurrentHashMap`).
+
+• **Daemon Threads**
+	- Background threads that do not prevent JVM from exiting.
+	- Set by `setDaemon(true)` before starting the thread.
+	- Example: Garbage collector thread.
+
+• **Thread Pools & Executors**
+	- Manage multiple threads efficiently using `ExecutorService` and thread pools.
+	- Avoids overhead of creating/destroying threads repeatedly.
+	- Use `Executors.newFixedThreadPool()`, `Executors.newCachedThreadPool()`, etc.
+
+• **Common Thread Problems**
+	- Race conditions: Multiple threads modify shared data unsafely.
+	- Deadlock: Two or more threads wait forever for each other to release resources.
+	- Starvation: A thread never gets CPU time or resources.
+	- Livelock: Threads keep changing state in response to each other but do not progress.
+
+• **Best Practices**
+	- Minimize shared data between threads.
+	- Prefer higher-level concurrency utilities (`java.util.concurrent`).
+	- Use thread pools for managing many threads.
+	- Always handle exceptions in threads.
+	- Avoid using `Thread.stop()`, `Thread.suspend()`, and `Thread.resume()` (deprecated and unsafe).
+
+• **Useful Classes in java.util.concurrent**
+	- `ExecutorService`, `Future`, `Callable`, `CountDownLatch`, `CyclicBarrier`, `Semaphore`, `BlockingQueue`, `ConcurrentHashMap`, etc.
+
+• **Process Management in Java**
+	- Use `ProcessBuilder` or `Runtime.exec()` to start external processes.
+	- Can read/write to process input/output streams.
+	- Used for running OS commands or other programs from Java.
+
+• **Summary Table**
+	| Aspect         | Process         | Thread           |
+	|---------------|----------------|-----------------|
+	| Memory        | Separate       | Shared          |
+	| Communication | IPC            | Shared objects  |
+	| Overhead      | High           | Low             |
+	| Creation      | Slow           | Fast            |
+	| Isolation     | Strong         | Weak            |
+
+• **References**
+	- Java Documentation: https://docs.oracle.com/javase/tutorial/essential/concurrency/
+	- Effective Java by Joshua Bloch (Concurrency chapter)
+	- Java Concurrency in Practice by Brian Goetz
