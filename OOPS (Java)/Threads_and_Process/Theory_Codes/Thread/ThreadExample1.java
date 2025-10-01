@@ -1,4 +1,5 @@
-// Example 1: Creating a thread by extending Thread
+package Theory_Codes.Thread;
+
 public class ThreadExample1 extends Thread {
     public void run() {
         System.out.println("Thread running via extends Thread");

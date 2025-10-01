@@ -1,4 +1,5 @@
-// Example 4: Thread with sleep
+package Theory_Codes.Thread;
+
 public class ThreadExample4 {
     public static void main(String[] args) throws InterruptedException {
         Thread t = new Thread(() -> {

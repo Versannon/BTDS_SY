@@ -1,4 +1,5 @@
-// Example 3: Multiple threads running concurrently
+package Theory_Codes.Thread;
+
 public class ThreadExample3 {
     public static void main(String[] args) {
         Runnable r = () -> {
