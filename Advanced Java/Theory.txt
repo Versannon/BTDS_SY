@@ -1,0 +1,33 @@
+Input - Output Stream.
+
+I/o:
+- Sending daa to program.
+- Displaying Ouput.
+Stream:
+- Pipeline sends data from source to destination.
+
+
+Stream:
+    - Byte Stream:
+        - for Binary data.
+        - FileInputStream, FileOutputStream.
+    - Character Stream:
+        - for Character data.
+        - FileReader, FileWriter.
+
+
+import java.io*;
+class ReadFiles
+{
+    public static void main(String[]args)
+    throwIoException
+    {
+        FileReader fr = new FileReader("data.txt");
+        int ch;
+        while((ch=fr.read())!= -1)
+        {
+            System.out.println((char)ch);
+        }
+        fr.close();
+    }
+}

@@ -48,6 +48,9 @@ Threads & Processes in Java
 	- Needed when multiple threads access shared resources.
 	- Use `synchronized` keyword to prevent race conditions.
 	- Can synchronize methods or code blocks.
+	- 'this' keyword:
+		1: Refers to the current object instance.
+		2: Used to access instance variables and methods.
 	- Other tools: `Lock` interface, `ReentrantLock`, `Semaphore`, `CountDownLatch`, etc.
 
 • **Thread Communication**
