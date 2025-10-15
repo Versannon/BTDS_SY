@@ -42,7 +42,8 @@ Threads & Processes in Java
     6: getName()-> return name of thread.
     7: setName(strings)-> Thread name will be replaced by given string.
     8: getPriority(integer)-> Set priority of thread. 1 to 10. Default is 5.
-    9: isAlive() -> return true if thread is active, and false if thread is not active.
+	9: setPriority(integer)-> Set priority of thread. 1 to 10. Default is 5.
+    10: isAlive() -> return true if thread is active, and false if thread is not active.
 
 • **Thread Synchronization**
 	- Needed when multiple threads access shared resources.
