@@ -56,6 +56,9 @@ Threads & Processes in Java
 
 • **Thread Communication**
 	- Threads can communicate using `wait()`, `notify()`, and `notifyAll()` methods (on shared objects).
+	wait(): - Causes the current thread to wait until another thread invokes notify() or notifyAll() on the same object.
+	notify(): - Wakes up a single thread that is waiting on the object's monitor.
+	notifyAll(): - Wakes up all threads that are waiting on the object's monitor.
 	- Used for coordination between threads (producer-consumer problem).
 
 • **Thread Safety**
