@@ -1,0 +1,11 @@
+Collection Type:
+- List
+- Set
+- Map
+
+Before Java collection, we store data in arrays.
+- Fixed size
+- Same Data Type.
+- No built-in method to search, sort & remove elements.
+- Manual work -> Program needed to add, delete, find.
+- No thread safe or flexible.
