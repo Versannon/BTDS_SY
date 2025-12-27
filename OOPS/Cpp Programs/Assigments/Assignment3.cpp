@@ -9,12 +9,13 @@ class Employee{
     string empName;
 
     public:
-    void setEmployee(int id, string name){
+    void setEmployee(int id, string name)
+    {
         empID = id;
         empName = name;
     }
-
-    void displayEmployeeDetails(){
+    void displayEmployeeDetails()
+    {
 
         cout << "CEO ID : " << empID << endl;
         cout << "CEO Name : " << empName << endl;
