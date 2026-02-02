@@ -1,0 +1,169 @@
+/* Main Stylesheet for Department of Technology */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    padding: 40px;
+    max-width: 600px;
+    width: 100%;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 20px;
+}
+
+.logo-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.logo-section img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.logo-section img:hover {
+    transform: scale(1.1);
+}
+
+h1 {
+    color: #667eea;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #667eea;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.intro-text {
+    color: #666;
+    font-size: 14px;
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+.content-text {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.branches-list {
+    list-style: none;
+}
+
+.branches-list li {
+    margin-bottom: 12px;
+}
+
+.branches-list a {
+    display: block;
+    padding: 15px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-left: 5px solid #764ba2;
+}
+
+.branches-list a:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    transform: translateX(8px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+.branches-list a:before {
+    content: "➜ ";
+    margin-right: 8px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 25px;
+    padding: 10px 20px;
+    background: #f0f0f0;
+    color: #667eea;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-left: 4px solid #667eea;
+}
+
+.back-link:hover {
+    background: #667eea;
+    color: white;
+    transform: translateX(-5px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.back-link:before {
+    content: "← ";
+    margin-right: 6px;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 2px solid #eee;
+    color: #999;
+    font-size: 12px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    .logo-section img {
+        width: 50px;
+        height: 50px;
+    }
+}
