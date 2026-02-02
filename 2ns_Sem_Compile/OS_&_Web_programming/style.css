@@ -1,12 +1,14 @@
 /* Main Stylesheet for Department of Technology */
 
-* {
+* 
+{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
+body 
+{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     min-height: 100vh;
@@ -32,7 +34,8 @@ body {
     padding-bottom: 20px;
 }
 
-.logo-section {
+.logo-section 
+{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,14 +43,16 @@ body {
     margin-bottom: 15px;
 }
 
-.logo-section img {
+.logo-section img 
+{
     width: 60px;
     height: 60px;
     object-fit: contain;
     transition: transform 0.3s ease;
 }
 
-.logo-section img:hover {
+.logo-section img:hover 
+{
     transform: scale(1.1);
 }
 
