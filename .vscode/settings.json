@@ -4,5 +4,21 @@
         "*.C": "c",
         "iostream": "cpp",
         "ostream": "cpp"
-    }
+    },
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "ssh": "Disabled",
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "ver1",
+            "username": "root",
+            "database": "ver1"
+        }
+    ]
 }
