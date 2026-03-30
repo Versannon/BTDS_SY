@@ -1,3 +1,5 @@
+create database assign;
+use assign;
 DROP TABLE IF EXISTS order_items;
 DROP TABLE IF EXISTS orders;
 DROP TABLE IF EXISTS customers;
@@ -36,7 +38,8 @@ INSERT INTO customers (customer_id, customer_name, city) VALUES
 (1, 'Aarav', 'Mumbai'),
 (2, 'Diya', 'Pune'),
 (3, 'Kabir', 'Delhi'),
-(4, 'Meera', 'Bengaluru');
+(4, 'Meera', 'Bengaluru'),
+(5, 'Rohan', 'Chennai');
 
 INSERT INTO products (product_id, product_name, category, price) VALUES
 (101, 'Laptop', 'Electronics', 60000.00),

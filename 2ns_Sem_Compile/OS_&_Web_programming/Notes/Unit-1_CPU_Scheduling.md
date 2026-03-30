@@ -62,6 +62,10 @@ CPU Scheduling Algorithm:
             Gantt Chart:
             | P2 | IDLE | P1 | P3 | P4 | P5 |
             0    1      2    4    7    12   17
+        
+        Round Robin:
+                - Criteria = Time Quantum.
+                - Mode = Pre-emptive.
 
     
     Scheduling criteria Algorithms:
