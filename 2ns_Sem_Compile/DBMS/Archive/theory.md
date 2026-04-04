@@ -157,5 +157,3 @@ Steps in Logical Database Design:
                 - A relation is in 3NF if it is in 2NF and there are no transitive dependencies between non-key attributes.
             4: Boyce-Codd Normal Form (BCNF):
                 - A relation is in BCNF if it is in 3NF and for every functional dependency X → Y, X is a superkey.
-    
-    
