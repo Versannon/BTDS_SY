@@ -9,12 +9,12 @@ create table employee
     id INT(255) PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     department VARCHAR(255) NOT NULL,
-    salary INT(255) NOT NULL
+    salary INT NOT NULL
 )
 
 create table department
 (
-    id INT(255) PRIMARY KEY,
+    id INT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     location VARCHAR(255) NOT NULL,
 )
@@ -35,3 +35,11 @@ Values
 (1, 'IT', 'New York'),
 (2, 'HR', 'Los Angeles'),
 (3, 'Finance', 'Chicago');
+
+-- Calc. Department wise total salary
+
+SELECT department, SUM(salary)
+FROM employee
+GROUP BY department;
+
+-- Having Clause: 

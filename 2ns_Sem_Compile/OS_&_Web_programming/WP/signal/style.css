@@ -1,0 +1,108 @@
+/* container border */
+.container{
+width:900px;
+height:600px;
+border:2px solid black;
+position:relative;
+}
+
+/* signal rectangle */
+
+.signal{
+width:80px;
+height:150px;
+border:2px solid black;
+
+position:absolute;
+top:0;
+left:0;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:space-around;
+
+animation:moveSignal 6s linear;
+}
+
+/* circles */
+
+.circle{
+width:30px;
+height:30px;
+border:2px solid black;
+border-radius:50%;
+}
+
+.top{
+animation:topLight 6s linear;
+}
+
+.middle{
+animation:midLight 6s linear;
+}
+
+.bottom{
+animation:bottomLight 6s linear;
+}
+
+/* movement */
+
+@keyframes moveSignal{
+
+0%{top:0; left:0;}
+
+25%{top:0; left:820px;}
+
+50%{top:450px; left:820px;}
+
+75%{top:450px; left:0;}
+
+100%{top:0; left:0;}
+
+}
+
+@keyframes topLight{
+
+0%{background:red;}
+24%{background:red;}
+
+25%{background:transparent;}
+49%{background:transparent;}
+
+50%{background:transparent;}
+74%{background:transparent;}
+
+75%{background:red;}
+100%{background:red;}
+
+}
+
+@keyframes midLight{
+
+0%{background:transparent;}
+24%{background:transparent;}
+
+25%{background:green;}
+49%{background:green;}
+
+50%{background:green;}
+74%{background:green;}
+
+75%{background:transparent;}
+100%{background:transparent;}
+
+}
+
+@keyframes bottomLight{
+
+0%{background:transparent;}
+49%{background:transparent;}
+
+50%{background:yellow;}
+74%{background:yellow;}
+
+75%{background:yellow;}
+100%{background:transparent;}
+
+}
