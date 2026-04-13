@@ -14,7 +14,7 @@ create table student_log
 -- Trigger Create
 
 DELIMITER //
-create triggertrg_after_insert
+create trigger trg_after_insert
 after insert on student
 for each row
 begin
@@ -41,3 +41,9 @@ values(concat('Student Updated: ', New.Name));
 end //
 
 DELIMITER ;
+
+-- Test Trigger
+
+update student
+set Marks = 90
+where SID = 2;
