@@ -387,3 +387,361 @@ This ensures the database returns to a **consistent state**, even under failures
 - **Recoverability**: avoid commit-before-writer-commit; cascadeless prevents dirty reads.
 - **2PL**: serializable but deadlocks possible; strict 2PL improves recovery safety.
 
+---
+
+# UNIT–IV: Important Theory Questions (With Answers)
+
+## Q1. Define a transaction. Explain its characteristics.
+
+**Answer:**
+
+A **transaction** is a sequence of operations performed as a **single logical unit of work**.
+
+It must either:
+
+- complete fully → **COMMIT**
+- fail completely → **ROLLBACK**
+
+**Example**
+
+```sql
+START TRANSACTION;
+UPDATE Accounts SET Balance = Balance - 1000 WHERE ID = 1;
+UPDATE Accounts SET Balance = Balance + 1000 WHERE ID = 2;
+COMMIT;
+```
+
+**Characteristics (ACID):**
+
+- Atomic
+- Consistent
+- Isolated
+- Durable
+
+Transaction ensures **reliability** and **integrity** of the database.
+
+---
+
+## Q2. Explain ACID properties in detail.
+
+**Answer:**
+
+1. **Atomicity**: All operations succeed or none.
+2. **Consistency**: Database remains valid (constraints hold).
+3. **Isolation**: Transactions don’t interfere with each other.
+4. **Durability**: Changes persist after commit.
+
+**Diagram**
+
+```
+Transaction
+   ↓
+ACID Properties
+├─ Atomicity
+├─ Consistency
+├─ Isolation
+└─ Durability
+```
+
+---
+
+## Q3. Explain different transaction states with diagram.
+
+**Answer:**
+
+**States:**
+
+- Active
+- Partially Committed
+- Committed
+- Failed
+- Aborted
+
+**Diagram**
+
+```
+Active → Partially Committed → Committed
+   ↓
+ Failed → Aborted
+```
+
+---
+
+## Q4. What is concurrency? Explain its advantages.
+
+**Answer:**
+
+**Concurrency** = Multiple transactions executing simultaneously.
+
+**Advantages:**
+
+- Faster execution
+- Better resource utilization
+- Multi-user support
+
+**Problem:** Data inconsistency without control → requires **concurrency control**.
+
+---
+
+## Q5. Explain lost update problem with example.
+
+**Answer:**
+
+Occurs when one transaction’s update overwrites another’s update.
+
+**Example**
+
+- T1: Read A = 1000  
+- T2: Read A = 1000  
+- T1: Write A = 1100  
+- T2: Write A = 950  ← lost update
+
+Final value becomes incorrect.
+
+---
+
+## Q6. Explain dirty read, non-repeatable read, and phantom read.
+
+**Answer:**
+
+- **Dirty Read**: Reading **uncommitted** data.
+- **Non-repeatable Read**: Same query returns **different values** due to another committed update.
+- **Phantom Read**: Same query returns **different set of rows** due to inserts/deletes by others.
+
+**Diagram**
+
+```
+Problem Types:
+├─ Dirty Read
+├─ Non-repeatable Read
+└─ Phantom Read
+```
+
+---
+
+## Q7. Define serializability. Explain its types.
+
+**Answer:**
+
+**Serializability** ensures correctness of concurrent execution by making the result equivalent to some **serial execution**.
+
+**Types:**
+
+- Conflict Serializability
+- View Serializability
+
+---
+
+## Q8. Explain precedence graph method.
+
+**Answer:**
+
+**Steps:**
+
+1. Create nodes for transactions.
+2. Add directed edges for conflicts.
+3. Check cycles.
+
+**Diagram**
+
+```
+T1 → T2 → T3
+↑        ↓
+└────────┘  (Cycle → Not Serializable)
+```
+
+No cycle → **Serializable**.
+
+---
+
+## Q9. What is recoverability? Explain types.
+
+**Answer:**
+
+Recoverability ensures transactions commit in a **safe order** (a transaction that reads from another should not commit before it).
+
+**Types:**
+
+- Recoverable schedule
+- Cascading rollback
+- Cascadeless schedule
+
+---
+
+## Q10. Explain lock-based protocols.
+
+**Answer:**
+
+Locks control access to data items to ensure isolation.
+
+**Types:**
+
+- Shared (Read)
+- Exclusive (Write)
+
+| Lock | Use |
+|---:|---|
+| S | Read |
+| X | Write |
+
+---
+
+## Q11. Explain Two-Phase Locking (2PL).
+
+**Answer:**
+
+**Phases:**
+
+- Growing: acquire locks
+- Shrinking: release locks
+
+**Diagram**
+
+```
+Growing Phase → Lock Point → Shrinking Phase
+```
+
+- Guarantees serializability  
+- May cause deadlock
+
+---
+
+## Q12. Explain timestamp-based protocol.
+
+**Answer:**
+
+- Each transaction gets a timestamp.
+- Older transaction gets priority.
+
+**Rule (idea):**
+
+If `TS(T1) < TS(T2)` then `T1` is treated as earlier in ordering.
+
+- No deadlocks
+- Rollbacks possible
+
+---
+
+## Q13. Explain validation-based protocol.
+
+**Answer:**
+
+**Phases:**
+
+- Read phase
+- Validation phase
+- Write phase
+
+- No locks used during execution
+- Good for low-conflict environments
+
+---
+
+## Q14. Explain multiple granularity locking.
+
+**Answer:**
+
+Locks are applied at different levels:
+
+- Database
+- Table
+- Row
+
+Improves efficiency and concurrency when chosen appropriately.
+
+---
+
+## Q15. Explain deadlock and prevention methods.
+
+**Answer:**
+
+**Deadlock** = circular waiting among transactions.
+
+**Diagram**
+
+```
+T1 → waits for T2
+T2 → waits for T1
+```
+
+**Prevention methods:**
+
+- Lock ordering
+- Timeout
+
+---
+
+## Q16. Explain recovery techniques.
+
+**Answer:**
+
+**Techniques:**
+
+- Immediate Update
+- Deferred Update
+
+Recovery uses logs to ensure atomicity and durability.
+
+---
+
+## Q17. Explain checkpoint mechanism.
+
+**Answer:**
+
+Checkpoint saves system state to reduce recovery time.
+
+**Process (concept):**
+
+- Stop/slow new transactions briefly
+- Flush buffers / write necessary info
+- Write checkpoint record
+
+**Benefit:** Faster recovery.
+
+---
+
+## Q18. Explain log-based recovery.
+
+**Answer:**
+
+**Log format:**
+
+`<Ti, Data Item, Old Value, New Value>`
+
+**Types:**
+
+- Undo log
+- Redo log
+
+Ensures durability and supports rollback/redo.
+
+---
+
+## Q19. Explain recovery process after crash.
+
+**Answer:**
+
+**Phases:**
+
+- Analysis
+- Redo
+- Undo
+
+**Flow**
+
+```
+Crash → Analysis → Redo → Undo → Consistent DB
+```
+
+---
+
+## Q20. Explain recovery with concurrent transactions.
+
+**Answer:**
+
+Multiple transactions execute and are logged; recovery ensures:
+
+- Committed → **REDO**
+- Uncommitted → **UNDO**
+
+Maintains consistency using the log system.
