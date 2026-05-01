@@ -1,0 +1,7 @@
+CREATE TABLE Student (SID INT PRIMARY KEY, Name VARCHAR(50), Age INT);
+INSERT INTO Student 
+VALUES 
+(1, 'Soham', 20),
+(2,'Rahul', 80);
+UPDATE Student SET Age = 21 WHERE SID = 1;
+DELETE FROM Student WHERE SID = 1;
